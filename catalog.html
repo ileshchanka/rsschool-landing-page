@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game catalog — GAMEDEMIC</title>
+  <meta name="description" content="Every board game covered on the GAMEDEMIC channel: euro games, family titles and cooperative adventures with players, play time and weight.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/catalog.css">
+  <script>
+    // Applies the saved theme before the first paint so the page never flashes.
+    (function () {
+      try {
+        var saved = localStorage.getItem('gamedemic-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.theme = saved;
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      } catch (error) {
+        /* localStorage may be unavailable — the default light theme stays. */
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="42" height="42" rx="11" fill="currentColor"></rect>
+          <circle cx="17" cy="17" r="4.5" fill="#ff8a3d"></circle>
+          <circle cx="31" cy="17" r="4.5" fill="#35c3b6"></circle>
+          <circle cx="24" cy="24" r="4.5" fill="#ff8a3d"></circle>
+          <circle cx="17" cy="31" r="4.5" fill="#35c3b6"></circle>
+          <circle cx="31" cy="31" r="4.5" fill="#ff8a3d"></circle>
+        </svg>
+        <span class="logo__text">
+          <span class="logo__name">GAMEDEMIC</span>
+          <span class="logo__tagline">Board games channel</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html#releases">Releases</a></li>
+          <li><a class="nav__link" href="index.html#formats">Formats</a></li>
+          <li><a class="nav__link" href="index.html#top">Top picks</a></li>
+          <li><a class="nav__link" href="index.html#about">About</a></li>
+          <li><a class="nav__link" href="catalog.html" aria-current="page">Catalog</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-button theme-toggle" type="button" id="theme-toggle" aria-pressed="false" aria-label="Turn on dark theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M5.6 5.6 7.2 7.2M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"></path>
+          </svg>
+        </button>
+        <button class="icon-button burger" type="button" id="burger" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path class="burger__line burger__line--top" d="M4 7h16"></path>
+            <path class="burger__line burger__line--middle" d="M4 13h16"></path>
+            <path class="burger__line burger__line--bottom" d="M4 19h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="catalog-hero">
+      <div class="container catalog-hero__inner">
+        <div>
+          <p class="eyebrow">Catalog</p>
+          <h1>Every game we put on the table</h1>
+          <p>
+            Twenty-five titles from the channel, sorted by the kind of evening they fit.
+            Each card links to the episode where we teach the rules and play a full game.
+          </p>
+        </div>
+        <div class="catalog-hero__facts">
+          <p class="catalog-hero__fact"><b>25</b><span>games</span></p>
+          <p class="catalog-hero__fact"><b>3</b><span>categories</span></p>
+          <p class="catalog-hero__fact"><b>1–6</b><span>players</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="container">
+        <h2 class="visually-hidden">Games by category</h2>
+        <div class="categories" id="categories">
+          <button class="category is-active" type="button"
+            aria-pressed="true" data-category="euro">Euro &amp; strategy</button>
+          <button class="category" type="button"
+            aria-pressed="false" data-category="family">Family &amp; light</button>
+          <button class="category" type="button"
+            aria-pressed="false" data-category="coop">Adventure &amp; co-op</button>
+        </div>
+        <p class="catalog__note" id="category-note">Heavier games with tight economies, worker placement and long-term planning.</p>
+
+        <div class="catalog-grid" id="catalog-grid">
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/eZDFBOI0O48/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Puerto Rico 1897 on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Puerto Rico 1897</h3>
+              <p class="game-card__desc">The special edition of the role-selection classic: plantations, buildings and shipping, now with reworked art and a deluxe insert.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Role selection</li>
+                <li class="tag">Economy</li>
+                <li class="tag">Classic</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>2–5</b></span>
+                <span>Time: <b>90–150 min</b></span>
+                <span>Weight: <b>3.3/5</b></span>
+                <span>Year: <b>2024</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/mlnG_oBTaug/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Nippon: Zaibatsu on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Nippon: Zaibatsu</h3>
+              <p class="game-card__desc">Industrialisation of Meiji-era Japan: hire workers, build factories and push your goods into every region of the country.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Worker placement</li>
+                <li class="tag">Area majority</li>
+                <li class="tag">Heavy</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>2–4</b></span>
+                <span>Time: <b>90–120 min</b></span>
+                <span>Weight: <b>3.6/5</b></span>
+                <span>Year: <b>2025</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/cQ16xqjx_Sw/hqdefault.jpg" width="480" height="360" loading="lazy" alt="GOA (2026) on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">GOA (2026)</h3>
+              <p class="game-card__desc">A new edition of the spice-trade auction game: bid for tiles, develop your colonial tracks and squeeze every action out of a short game.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Auction</li>
+                <li class="tag">Tableau building</li>
+                <li class="tag">Trading</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>2–4</b></span>
+                <span>Time: <b>60–120 min</b></span>
+                <span>Weight: <b>3.4/5</b></span>
+                <span>Year: <b>2026</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/hcbQ2KUn7Vs/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Luthier on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Luthier</h3>
+              <p class="game-card__desc">Craft instruments for baroque patrons: an interlocking economy where every loan, apprentice and commission has to be planned turns ahead.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Economy</li>
+                <li class="tag">Solo mode</li>
+                <li class="tag">Heavy</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>90–150 min</b></span>
+                <span>Weight: <b>3.8/5</b></span>
+                <span>Year: <b>2025</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/IFoXtF_5hJ4/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Skyrise on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Skyrise</h3>
+              <p class="game-card__desc">The successor to Metropolys: raise towers, take districts and score patrons in a sharp city-building duel of heights.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Area control</li>
+                <li class="tag">City building</li>
+                <li class="tag">Bidding</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>2–5</b></span>
+                <span>Time: <b>60–120 min</b></span>
+                <span>Weight: <b>3.2/5</b></span>
+                <span>Year: <b>2024</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/K7tXL6RqaWM/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Cretaceous Rails on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Cretaceous Rails</h3>
+              <p class="game-card__desc">Railways across a dinosaur continent: lay track, deliver cargo and keep your engine running while the herds move across the map.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Route building</li>
+                <li class="tag">Pick-up and deliver</li>
+                <li class="tag">Solo mode</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>60–90 min</b></span>
+                <span>Weight: <b>3.0/5</b></span>
+                <span>Year: <b>2025</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/DJleph9t23c/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Windmill Valley on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Windmill Valley</h3>
+              <p class="game-card__desc">Dutch tulip fields and a rotating windmill gear: plant bulbs, hire workers and time the rotation of your mill to chain actions.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Rondel</li>
+                <li class="tag">Engine building</li>
+                <li class="tag">Solo mode</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>60–90 min</b></span>
+                <span>Weight: <b>3.1/5</b></span>
+                <span>Year: <b>2023</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/PdsI4-P3AxU/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Echoes of Time on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Echoes of Time</h3>
+              <p class="game-card__desc">A dense Luciani design about civilisations echoing through eras: tight action selection where every round rewrites your options.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Action selection</li>
+                <li class="tag">Civilization</li>
+                <li class="tag">Heavy</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>75–120 min</b></span>
+                <span>Weight: <b>3.7/5</b></span>
+                <span>Year: <b>2025</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/k4_29w0wnMs/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Pergola on the table during the episode">
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Pergola</h3>
+              <p class="game-card__desc">Grow a garden under a wooden pergola: combine plants, animals and light to build the most balanced green corner of the estate.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Tile placement</li>
+                <li class="tag">Set collection</li>
+                <li class="tag">Gardens</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>45–75 min</b></span>
+                <span>Weight: <b>2.8/5</b></span>
+                <span>Year: <b>2025</b></span>
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="catalog__more" id="catalog-more">
+          <button class="button button--ghost" type="button" id="load-more">Show more games</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="index.html">
+            <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="42" height="42" rx="11" fill="currentColor"></rect>
+              <circle cx="17" cy="17" r="4.5" fill="#ff8a3d"></circle>
+              <circle cx="31" cy="17" r="4.5" fill="#35c3b6"></circle>
+              <circle cx="24" cy="24" r="4.5" fill="#ff8a3d"></circle>
+              <circle cx="17" cy="31" r="4.5" fill="#35c3b6"></circle>
+              <circle cx="31" cy="31" r="4.5" fill="#ff8a3d"></circle>
+            </svg>
+            <span class="logo__text">
+              <span class="logo__name">GAMEDEMIC</span>
+              <span class="logo__tagline">Board games channel</span>
+            </span>
+          </a>
+          <p class="footer__about">
+            New releases, rules, playthroughs and honest opinions about board games —
+            twice a week, in Russian and English.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Contacts</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="tel:+48221234567">+48 22 123 45 67</a></li>
+            <li><a class="footer__link" href="mailto:hello@gamedemic.tv">hello@gamedemic.tv</a></li>
+            <li>
+              <a class="footer__link" href="https://maps.google.com/?q=Nowy+Swiat+22,+Warsaw" target="_blank" rel="noopener">
+                Game night: Nowy Świat 22, Warsaw
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Follow</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="https://www.youtube.com/@gamedemic" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a class="footer__link" href="https://t.me/gamedemic" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a class="footer__link" href="https://boardgamegeek.com/" target="_blank" rel="noopener">BoardGameGeek</a></li>
+            <li><a class="footer__link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Release schedule</h2>
+          <div class="footer__schedule">
+            <div><span>Rules &amp; playthrough</span><b>Tue</b></div>
+            <div><span>Unboxing</span><b>Fri</b></div>
+            <div><span>Live game night</span><b>Sat</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 GAMEDEMIC. Made for The Rolling Scopes School.</p>
+        <p><a href="https://rs.school/" target="_blank" rel="noopener">rs.school</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>
