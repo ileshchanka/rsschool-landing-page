@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GAMEDEMIC — board game rules, playthroughs and new releases</title>
+  <meta name="description" content="GAMEDEMIC is a YouTube channel about board games: rules explained, full playthroughs, unboxings and a catalog of the games we covered.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script>
+    // Applies the saved theme before the first paint so the page never flashes.
+    (function () {
+      try {
+        var saved = localStorage.getItem('gamedemic-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.theme = saved;
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      } catch (error) {
+        /* localStorage may be unavailable — the default light theme stays. */
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-current="page">
+        <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="42" height="42" rx="11" fill="currentColor"></rect>
+          <circle cx="17" cy="17" r="4.5" fill="#ff8a3d"></circle>
+          <circle cx="31" cy="17" r="4.5" fill="#35c3b6"></circle>
+          <circle cx="24" cy="24" r="4.5" fill="#ff8a3d"></circle>
+          <circle cx="17" cy="31" r="4.5" fill="#35c3b6"></circle>
+          <circle cx="31" cy="31" r="4.5" fill="#ff8a3d"></circle>
+        </svg>
+        <span class="logo__text">
+          <span class="logo__name">GAMEDEMIC</span>
+          <span class="logo__tagline">Board games channel</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#releases">Releases</a></li>
+          <li><a class="nav__link" href="#formats">Formats</a></li>
+          <li><a class="nav__link" href="#top">Top picks</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="catalog.html">Catalog</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-button theme-toggle" type="button" id="theme-toggle" aria-pressed="false" aria-label="Turn on dark theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M5.6 5.6 7.2 7.2M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"></path>
+          </svg>
+        </button>
+        <button class="icon-button burger" type="button" id="burger" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path class="burger__line burger__line--top" d="M4 7h16"></path>
+            <path class="burger__line burger__line--middle" d="M4 13h16"></path>
+            <path class="burger__line burger__line--bottom" d="M4 19h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div>
+          <p class="eyebrow">Board games channel</p>
+          <h1 class="hero__title">Rules explained, games <span>actually played</span>.</h1>
+          <p class="hero__text">
+            GAMEDEMIC is a channel about the tabletop hobby: we teach the rules in plain words,
+            play a full game on camera and tell you honestly whether a new release deserves
+            a place on your shelf.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="https://www.youtube.com/@gamedemic" target="_blank" rel="noopener">Watch on YouTube</a>
+            <a class="button button--ghost" href="catalog.html">Browse the catalog</a>
+          </div>
+          <div class="hero__stats">
+            <p class="hero__stat"><b>4.1K</b><span>subscribers</span></p>
+            <p class="hero__stat"><b>213</b><span>episodes</span></p>
+            <p class="hero__stat"><b>25</b><span>games in the catalog</span></p>
+            <p class="hero__stat"><b>2</b><span>videos a week</span></p>
+          </div>
+        </div>
+        <figure class="hero__figure">
+          <img src="https://i.ytimg.com/vi/eZDFBOI0O48/hqdefault.jpg" width="480" height="360" alt="The Puerto Rico 1897: Special Edition episode: the game set up on the table">
+          <figcaption class="hero__figcaption">
+            <b>Puerto Rico 1897: Special Edition</b>
+            <span>Latest episode · Rules & playthrough</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="releases">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__title-group">
+            <p class="eyebrow">Fresh from the table</p>
+            <h2>Latest releases</h2>
+            <p class="section__lead">
+              Every episode starts with the rules and ends with a full game, so you know
+              what the box feels like before you buy it.
+            </p>
+          </div>
+          <div class="slider__controls">
+            <button class="icon-button" type="button" id="slider-prev" aria-label="Previous episodes">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"></path></svg>
+            </button>
+            <button class="icon-button" type="button" id="slider-next" aria-label="Next episodes">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="slider" id="releases-slider">
+          <div class="slider__viewport">
+            <ul class="slider__track" id="slider-track">
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=eZDFBOI0O48" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/eZDFBOI0O48/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the Puerto Rico 1897: Special Edition episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Rules & playthrough</span>
+                  <span class="video-card__title">Puerto Rico 1897: Special Edition</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=mlnG_oBTaug" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/mlnG_oBTaug/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the Nippon: Zaibatsu episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Rules & playthrough</span>
+                  <span class="video-card__title">Nippon: Zaibatsu</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=HjJ-t8umQCQ" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/HjJ-t8umQCQ/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the Come Sail Away! episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Rules & playthrough</span>
+                  <span class="video-card__title">Come Sail Away!</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=t9DF8eKsnko" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/t9DF8eKsnko/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the Sanctuary episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Rules & playthrough</span>
+                  <span class="video-card__title">Sanctuary</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=wFOg0TPJCLk" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/wFOg0TPJCLk/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the Nippon: Zaibatsu episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Unboxing</span>
+                  <span class="video-card__title">Nippon: Zaibatsu</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=X_Wj1x9IwwU" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/X_Wj1x9IwwU/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the A Message from the Stars episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Rules & playthrough</span>
+                  <span class="video-card__title">A Message from the Stars</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=x8tJlDaGLsE" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/x8tJlDaGLsE/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the KOI episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Rules & playthrough</span>
+                  <span class="video-card__title">KOI</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=cQ16xqjx_Sw" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/cQ16xqjx_Sw/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the GOA (2026) episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Rules & playthrough</span>
+                  <span class="video-card__title">GOA (2026)</span>
+                </span>
+              </a>
+            </li>
+            <li class="slider__slide">
+              <a class="video-card" href="https://www.youtube.com/watch?v=gJoekmBrXew" target="_blank" rel="noopener">
+                <span class="video-card__media">
+                  <img src="https://i.ytimg.com/vi/gJoekmBrXew/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Thumbnail of the Best party games of 2026 episode">
+                  <span class="video-card__play" aria-hidden="true">
+                    <span><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
+                  </span>
+                </span>
+                <span class="video-card__body">
+                  <span class="video-card__kind">Top list</span>
+                  <span class="video-card__title">Best party games of 2026</span>
+                </span>
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="slider__dots" id="slider-dots" role="group" aria-label="Episode groups">
+            <button class="slider__dot is-active" type="button" aria-pressed="true" aria-label="Show episode group 1"></button>
+            <button class="slider__dot" type="button" aria-pressed="false" aria-label="Show episode group 2"></button>
+            <button class="slider__dot" type="button" aria-pressed="false" aria-label="Show episode group 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="formats">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__title-group">
+            <p class="eyebrow">What we make</p>
+            <h2>Four formats on the channel</h2>
+            <p class="section__lead">
+              Pick the format that fits your evening: a quick rules recap, a full playthrough,
+              a close look at the components or a report from a convention.
+            </p>
+          </div>
+        </div>
+
+        <div class="formats">
+          <article class="format-card">
+            <span class="format-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5.5h7a2 2 0 0 1 2 2V19a2 2 0 0 0-2-2H4z"></path><path d="M20 5.5h-7a2 2 0 0 0-2 2V19a2 2 0 0 1 2-2h7z"></path></svg>
+            </span>
+            <h3>Rules explained</h3>
+            <p>A 10-minute walkthrough of the setup, the turn structure and the scoring — no rulebook required.</p>
+          </article>
+          <article class="format-card">
+            <span class="format-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg>
+            </span>
+            <h3>Playthroughs</h3>
+            <p>A full game from setup to final scoring, with the thinking behind every move spoken out loud.</p>
+          </article>
+          <article class="format-card">
+            <span class="format-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3.5 8.5 12 4l8.5 4.5-8.5 4.5z"></path><path d="M3.5 8.5v7L12 20l8.5-4.5v-7"></path><path d="M12 13v7"></path></svg>
+            </span>
+            <h3>Unboxings</h3>
+            <p>Components in the hand: cardboard thickness, insert quality and whether the deluxe edition is worth it.</p>
+          </article>
+          <article class="format-card">
+            <span class="format-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-10.4A7 7 0 0 0 5 10.6C5 15.9 12 21 12 21Z"></path><circle cx="12" cy="10.4" r="2.5"></circle></svg>
+            </span>
+            <h3>Convention reports</h3>
+            <p>Essen, Pionek, local game nights — what people are playing and which releases are worth the queue.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="top">
+      <div class="container">
+        <div class="section__head">
+          <div class="section__title-group">
+            <p class="eyebrow">Editor's choice</p>
+            <h2>Top picks of the month</h2>
+            <p class="section__lead">
+              Six games that stayed on the table long after the camera was switched off.
+            </p>
+          </div>
+          <a class="button button--ghost" href="catalog.html">All 25 games</a>
+        </div>
+
+        <div class="top-grid">
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/hcbQ2KUn7Vs/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Luthier on the table during the episode">
+              <span class="game-card__badge">Euro &amp; strategy</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Luthier</h3>
+              <p class="game-card__desc">Craft instruments for baroque patrons: an interlocking economy where every loan, apprentice and commission has to be planned turns ahead.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Economy</li>
+                <li class="tag">Solo mode</li>
+                <li class="tag">Heavy</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>90–150 min</b></span>
+                <span>Weight: <b>3.8/5</b></span>
+                <span>Year: <b>2025</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/IFoXtF_5hJ4/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Skyrise on the table during the episode">
+              <span class="game-card__badge">Euro &amp; strategy</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Skyrise</h3>
+              <p class="game-card__desc">The successor to Metropolys: raise towers, take districts and score patrons in a sharp city-building duel of heights.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Area control</li>
+                <li class="tag">City building</li>
+                <li class="tag">Bidding</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>2–5</b></span>
+                <span>Time: <b>60–120 min</b></span>
+                <span>Weight: <b>3.2/5</b></span>
+                <span>Year: <b>2024</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/v4vH4_P88Po/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Forest Shuffle: Dartmoor on the table during the episode">
+              <span class="game-card__badge">Family &amp; light</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Forest Shuffle: Dartmoor</h3>
+              <p class="game-card__desc">The Dartmoor expansion brings moors, ponies and new symbioses to the card forest everybody already loves.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Card drafting</li>
+                <li class="tag">Expansion</li>
+                <li class="tag">Nature</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>2–5</b></span>
+                <span>Time: <b>40–60 min</b></span>
+                <span>Weight: <b>2.3/5</b></span>
+                <span>Year: <b>2025</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/DJleph9t23c/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Windmill Valley on the table during the episode">
+              <span class="game-card__badge">Euro &amp; strategy</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Windmill Valley</h3>
+              <p class="game-card__desc">Dutch tulip fields and a rotating windmill gear: plant bulbs, hire workers and time the rotation of your mill to chain actions.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Rondel</li>
+                <li class="tag">Engine building</li>
+                <li class="tag">Solo mode</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>60–90 min</b></span>
+                <span>Weight: <b>3.1/5</b></span>
+                <span>Year: <b>2023</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/x8tJlDaGLsE/hqdefault.jpg" width="480" height="360" loading="lazy" alt="KOI on the table during the episode">
+              <span class="game-card__badge">Family &amp; light</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">KOI</h3>
+              <p class="game-card__desc">Glide a koi across a pond, swallow dragonflies and complete graceful loops in a small, beautiful movement game.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Abstract</li>
+                <li class="tag">Movement</li>
+                <li class="tag">Short</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>20–40 min</b></span>
+                <span>Weight: <b>1.9/5</b></span>
+                <span>Year: <b>2024</b></span>
+              </p>
+            </div>
+          </article>
+          <article class="game-card">
+            <div class="game-card__media">
+              <img class="game-card__image" src="https://i.ytimg.com/vi/Dy7GeJA7BD8/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Townsfolk Tussle on the table during the episode">
+              <span class="game-card__badge">Adventure &amp; co-op</span>
+            </div>
+            <div class="game-card__body">
+              <h3 class="game-card__title">Townsfolk Tussle</h3>
+              <p class="game-card__desc">A cartoon brawler campaign: train in Eureka Springs by day, take down oversized bosses by night.</p>
+              <ul class="game-card__tags">
+                <li class="tag">Co-op</li>
+                <li class="tag">Campaign</li>
+                <li class="tag">Miniatures</li>
+              </ul>
+              <p class="game-card__meta">
+                <span>Players: <b>1–4</b></span>
+                <span>Time: <b>90–150 min</b></span>
+                <span>Weight: <b>3.4/5</b></span>
+                <span>Year: <b>2024</b></span>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="about">
+      <div class="container about">
+        <div class="about__text">
+          <p class="eyebrow">About the channel</p>
+          <h2>Two people, one table, a lot of cardboard</h2>
+          <p>
+            GAMEDEMIC started in 2021 as a way to keep track of the games our group played.
+            Five years later it is a bilingual channel with a shelf that no longer closes
+            and a community that argues about scoring rules in the comments.
+          </p>
+          <p>
+            We buy most of the games ourselves, mark every sponsored episode and never review
+            a title we have played fewer than three times.
+          </p>
+          <blockquote class="about__quote">
+            <p>“Read the rules once, watch us play once — and you are ready to teach your own table.”</p>
+            <footer>— the GAMEDEMIC crew</footer>
+          </blockquote>
+        </div>
+        <div class="about__numbers">
+          <p class="about__number"><b>213</b><span>episodes published</span></p>
+          <p class="about__number"><b>640+</b><span>hours of playthroughs</span></p>
+          <p class="about__number"><b>5</b><span>years on air</span></p>
+          <p class="about__number"><b>48</b><span>game nights hosted</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="join">
+          <div class="join__text">
+            <p class="eyebrow">Join in</p>
+            <h2>Play with us on Saturday</h2>
+            <p>
+              Subscribe for two episodes a week, or drop by our game night in Warsaw —
+              tables, teachers and a shelf of 300 games are already there.
+            </p>
+          </div>
+          <div class="join__actions">
+            <a class="button button--primary button--block" href="https://www.youtube.com/@gamedemic?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+            <a class="button button--ghost button--block" href="https://t.me/gamedemic" target="_blank" rel="noopener">Join the Telegram chat</a>
+            <p class="join__note">No spam — just a message when a new episode is out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="index.html">
+            <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <rect x="3" y="3" width="42" height="42" rx="11" fill="currentColor"></rect>
+              <circle cx="17" cy="17" r="4.5" fill="#ff8a3d"></circle>
+              <circle cx="31" cy="17" r="4.5" fill="#35c3b6"></circle>
+              <circle cx="24" cy="24" r="4.5" fill="#ff8a3d"></circle>
+              <circle cx="17" cy="31" r="4.5" fill="#35c3b6"></circle>
+              <circle cx="31" cy="31" r="4.5" fill="#ff8a3d"></circle>
+            </svg>
+            <span class="logo__text">
+              <span class="logo__name">GAMEDEMIC</span>
+              <span class="logo__tagline">Board games channel</span>
+            </span>
+          </a>
+          <p class="footer__about">
+            New releases, rules, playthroughs and honest opinions about board games —
+            twice a week, in Russian and English.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Contacts</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="tel:+48221234567">+48 22 123 45 67</a></li>
+            <li><a class="footer__link" href="mailto:hello@gamedemic.tv">hello@gamedemic.tv</a></li>
+            <li>
+              <a class="footer__link" href="https://maps.google.com/?q=Nowy+Swiat+22,+Warsaw" target="_blank" rel="noopener">
+                Game night: Nowy Świat 22, Warsaw
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Follow</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="https://www.youtube.com/@gamedemic" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a class="footer__link" href="https://t.me/gamedemic" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a class="footer__link" href="https://boardgamegeek.com/" target="_blank" rel="noopener">BoardGameGeek</a></li>
+            <li><a class="footer__link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Release schedule</h2>
+          <div class="footer__schedule">
+            <div><span>Rules &amp; playthrough</span><b>Tue</b></div>
+            <div><span>Unboxing</span><b>Fri</b></div>
+            <div><span>Live game night</span><b>Sat</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 GAMEDEMIC. Made for The Rolling Scopes School.</p>
+        <p><a href="https://rs.school/" target="_blank" rel="noopener">rs.school</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>
