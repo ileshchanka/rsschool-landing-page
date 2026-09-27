@@ -7,6 +7,7 @@
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 let state = null;
+let hideTimer;
 
 function elements() {
   return {
@@ -147,7 +148,7 @@ export function closeModal() {
   document.removeEventListener('keydown', onKeydown);
   document.removeEventListener('keydown', trapFocus);
 
-  window.setTimeout(() => {
+  hideTimer = window.setTimeout(() => {
     ui.modal.hidden = true;
   }, 250);
 
@@ -192,6 +193,7 @@ export function openModal(game, categoryTitle, opener) {
 
   renderParameters();
 
+  window.clearTimeout(hideTimer);
   ui.modal.hidden = false;
   // Forces a reflow so the opening transition runs.
   void ui.modal.offsetWidth;
