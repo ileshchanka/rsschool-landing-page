@@ -18,10 +18,6 @@ let activeCategory = CATEGORIES[0].id;
 let visibleCount = 0;
 
 function pageSize() {
-  if (window.innerWidth <= 620) {
-    return 3;
-  }
-
   return window.innerWidth <= 1024 ? 4 : 6;
 }
 
